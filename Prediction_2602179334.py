@@ -9,15 +9,17 @@ Original file is located at
 #3. Membuat code prediction yang akan digunakan untuk proses deployment.
 """
 
+import streamlit as st
+import joblib
 import pickle
 import warnings
 warnings.filterwarnings('ignore')
 
 #Load the best trained model from a pickle file
-def load_model(filename):
-    with open(filename, 'rb') as file:
-        model = pickle.load(file)
-    return model
+# def load_model(filename):
+#     with open(filename, 'rb') as file:
+#         model = pickle.load(file)
+#     return model
 
 #Make predictions base on model and user input
 def predict_with_model(model, user_input):
@@ -25,7 +27,8 @@ def predict_with_model(model, user_input):
     return prediction[0]
 
 def main():
-    model_file = 'best_model.pkl'
+    model_file = joblib.load('best_model.pkl')
+    # model_file = 'best_model.pkl'
     model = load_model(model_file)
 
     input = [0,1,0,1,1,1,0,1,0,0,0,1]
