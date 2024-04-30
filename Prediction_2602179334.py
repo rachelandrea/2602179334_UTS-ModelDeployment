@@ -26,10 +26,11 @@ def predict_with_model(model, user_input):
     prediction = model.predict([user_input])
     return prediction[0]
 
+model = joblib.load('best_model.pkl')
 def main():
-    model_file = joblib.load('best_model.pkl')
+    # model_file = joblib.load('best_model.pkl')
     # model_file = 'best_model.pkl'
-    model = load_model(model_file)
+    # model = load_model(model_file)
 
     input = [0,1,0,1,1,1,0,1,0,0,0,1]
     prediction = predict_with_model(model, input)
