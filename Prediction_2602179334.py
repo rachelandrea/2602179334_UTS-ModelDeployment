@@ -21,11 +21,8 @@ def load_model(filename):
 
 #Make predictions base on model and user input
 def predict_with_model(model, user_input):
-    if model is None:
-      return "Model not found."
-    else:
-      prediction = model.predict([user_input])
-      return prediction[0]
+    prediction = model.predict([user_input])
+    return prediction[0]
 
 def main():
     model_file = 'best_model.pkl'
